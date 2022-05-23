@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Relógio javascript</title>
+	<style>
+		body {
+			background: #ddd;
+		}
+		@font-face {
+			font-family: 'love';
+			src: url(GILSANUB.TTF);
+		}
+
+		h1 {
+			text-align: center;
+			font-family: 'love', sans-serif, arial;
+		}
+
+		#rel {
+			text-align: center;
+			color: #0f0;
+			font-weight: bold;
+			font-size: 30px;
+			width: 130px;
+			background: black;
+			padding: 20px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+	</style>
+	<script>
+		function relogio(){
+			var data = new Date();
+			var hor = data.getHours();
+			var min = data.getMinutes();
+			var seg = data.getSeconds();
+
+			if (hor < 10) {
+				hor = '0'+hor;
+			}
+
+			if (min < 10) {
+				min = '0'+min;
+			}
+
+			if (seg < 10) {
+				seg = '0'+seg;
+			}
+
+			var horas = hor+':'+min+':'+seg;
+			document.getElementById('rel').value = horas;
+		}
+
+		var tempo = setInterval(relogio,1000);
+	</script>
+</head>
+<body>
+	<h1>Relógio javascript</h1>
+	<input type="text" id="rel">
+</body>
+</html>
